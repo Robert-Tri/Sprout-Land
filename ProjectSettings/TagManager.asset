@@ -11,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 
@@ -49,4 +49,10 @@ TagManager:
     locked: 0
   - name: HIll
     uniqueID: 2935198769
+    locked: 0
+  - name: Player
+    uniqueID: 2326870795
+    locked: 0
+  - name: InventorySlot
+    uniqueID: 285292107
     locked: 0
