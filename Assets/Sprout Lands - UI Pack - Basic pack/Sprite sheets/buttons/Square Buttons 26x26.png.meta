@@ -293,7 +293,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -301,14 +301,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Square Buttons 26x26_0: 1705998850
-      Square Buttons 26x26_1: 2095492496
-      Square Buttons 26x26_2: 273786078
-      Square Buttons 26x26_3: 576170998
-      Square Buttons 26x26_4: -898682822
-      Square Buttons 26x26_5: -1086559317
-      Square Buttons 26x26_6: -282628447
-      Square Buttons 26x26_7: -1726329997
+      Square Buttons 26x26_0: -2476932275191213472
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
