@@ -17,10 +17,10 @@ TagManager:
   - Water
   - UI
   - Platform
-  - 
-  - 
-  - 
-  - 
+  - Inventory
+  - InventorySlot
+  - Backgroud
+  - InventoryItem
   - 
   - 
   - 
@@ -78,4 +78,10 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 2460649727
+    locked: 0
+  - name: InventorySlot
+    uniqueID: 2278500173
+    locked: 0
+  - name: InventoryItem
+    uniqueID: 984107857
     locked: 0
