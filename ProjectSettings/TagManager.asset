@@ -56,9 +56,6 @@ TagManager:
   - name: Grass 2
     uniqueID: 416759819
     locked: 0
-  - name: Tilled Dirt
-    uniqueID: 1954775703
-    locked: 0
   - name: Fruits
     uniqueID: 3878747481
     locked: 0
@@ -68,11 +65,8 @@ TagManager:
   - name: Under Bush
     uniqueID: 250558787
     locked: 0
-  - name: HIll
+  - name: Bush
     uniqueID: 2935198769
-    locked: 0
-  - name: Brige
-    uniqueID: 857834119
     locked: 0
   - name: Trees 1
     uniqueID: 571768293
