@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BuildZone
+  - Platform
+  - Platform Under Bridge
+  - Bridge In Hill
+  - HillZone
   layers:
   - Default
   - TransparentFX
@@ -59,14 +64,17 @@ TagManager:
   - name: Tilled Dirt
     uniqueID: 1954775703
     locked: 0
-  - name: Player
+  - name: Player (In Platform)
     uniqueID: 2923118573
     locked: 0
   - name: HIll
     uniqueID: 2935198769
     locked: 0
-  - name: Brige
+  - name: Brige in hill
     uniqueID: 857834119
+    locked: 0
+  - name: Player (In Higher Platform)
+    uniqueID: 681897217
     locked: 0
   - name: UI
     uniqueID: 2460649727
