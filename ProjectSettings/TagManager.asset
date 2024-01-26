@@ -78,6 +78,10 @@ TagManager:
     locked: 0
   - name: Trees 2
     uniqueID: 149230911
+    locked: 0
+  - name: Icon
+    uniqueID: 227253501
+    locked: 0
   - name: Brige in hill
     uniqueID: 857834119
     locked: 0
