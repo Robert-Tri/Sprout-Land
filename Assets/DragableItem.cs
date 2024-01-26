@@ -6,7 +6,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 {
     [Header("UI")]
     public Image image;
-    //public Text countText;
+    public Text countText;
     [HideInInspector] public Item item;
     [HideInInspector] public int count = 1;
     [HideInInspector] public Transform parentAfterDrag;
@@ -18,10 +18,10 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         image.raycastTarget = false;
     }
 
-    /*public void RefreshCount()
+    public void RefreshCount()
     {
         countText.text = count.ToString();
-    }*/
+    }
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -38,6 +38,6 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     {
         this.item = item;
         image.sprite = item.image;
-        //RefreshCount();
+        RefreshCount();
     }
 }
