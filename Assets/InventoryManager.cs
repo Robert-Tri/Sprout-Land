@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public static int maxItem = 4;
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
+
 
     public void AddItem(Item item)
     {
 
-        foreach(var slot in inventorySlots)
+        foreach (var slot in inventorySlots)
+        {
+            DragableItem inventoryItem = slot.GetComponentInChildren<DragableItem>();
+            if (inventoryItem != null && inventoryItem.item == item && inventoryItem.count <= maxItem && inventoryItem.item.stackable == true)
+            {
+                inventoryItem.count++;
+                inventoryItem.RefreshCount();
+                return;
+            }
+        }
+
+        foreach (var slot in inventorySlots)
         {
             DragableItem inventoryItem = slot.GetComponentInChildren<DragableItem>();
             if (inventoryItem == null)
