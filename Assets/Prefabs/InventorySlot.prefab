@@ -113,3 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c390c93360fa464fa11638b0ed29880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 7929562679440883051}
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  newWidth: 5
+  newHeight: 5
