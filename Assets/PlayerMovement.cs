@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     {
         this.pressHorizontal = moveInput.x;
         this.pressVertical = moveInput.y;
-        this.Move();
+        this.Move(); 
+        Hoeing();
     }
 
     void OnMove(InputValue value)
@@ -47,6 +48,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.fixedDeltaTime;
         transform.Translate(movement);
     }
+
+    
 
     private void MoveDownAnimation()
     {
@@ -107,5 +110,9 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsMovingLeft", false);
         }
+    }
+    private void Hoeing()
+    {
+        animator.SetTrigger("TriggerHoeingRight");
     }
 }
