@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -282628447, guid: 472b9f2baf75f1a4fb0ccbc77ed21b8f, type: 3}
+  m_Sprite: {fileID: -967214608, guid: 472b9f2baf75f1a4fb0ccbc77ed21b8f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7929562679440883051}
+  outlineImage: {fileID: 0}
   outlineColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 5
   newWidth: 5
