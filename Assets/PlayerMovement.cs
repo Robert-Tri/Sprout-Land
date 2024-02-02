@@ -11,11 +11,15 @@ public class PlayerMovement : MonoBehaviour
     public float pressHorizontal = 0;
     public float pressVertical = 0;
     Vector2 moveInput;
+    private InputAction hoeAction;
     bool isAlive = true;
     // Start is called before the first frame update
     void Start()
     {
         this.animator = GetComponent<Animator>();
+        hoeAction = new InputAction(binding: "<Keyboard>/f", type: InputActionType.Button);
+        hoeAction.performed += OnHoeActionPerformed;
+        hoeAction.Enable();
     }
 
     // Update is called once per frame
@@ -24,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
         this.pressHorizontal = moveInput.x;
         this.pressVertical = moveInput.y;
         this.Move(); 
-        Hoeing();
     }
 
     void OnMove(InputValue value)
@@ -111,8 +114,9 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsMovingLeft", false);
         }
     }
-    private void Hoeing()
+    void OnHoeActionPerformed(InputAction.CallbackContext context)
     {
+        // Kích hoạt trigger trong Animator khi nút F được bấm
         animator.SetTrigger("TriggerHoeingRight");
     }
 }
