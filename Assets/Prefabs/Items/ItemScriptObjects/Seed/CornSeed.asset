@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: CornSeed
+  m_EditorClassIdentifier: 
+  itemName: Corn Seed
+  ID: 1
+  icon: {fileID: -2019059201, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: fd2e0aa53a66942478441b711fa2521a, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 0
+  description: "H\u1EA1t gi\u1ED1ng c\xE2y ng\xF4. Tr\u1ED3ng trong v\xF2ng 3 ph\xFAt."
+  buyPrice: 180
+  sellPrice: 144
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0
