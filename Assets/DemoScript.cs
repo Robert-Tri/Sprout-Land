@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class DemoScript : MonoBehaviour
+namespace Assets._Scripts.Models
 {
-    public InventoryManager inventoryManager;
-
-    public Item[] itemsToPickUp;
-    private void Start()
+    public class DemoScript : MonoBehaviour
     {
-        for(int i = 0; i < 5; i++)
+        public InventoryManager inventoryManager;
+
+        public GameObjectData[] itemsToPickUp;
+        private void Start()
         {
-            inventoryManager.AddItem(itemsToPickUp[2]);
+            for (int i = 0; i < 5; i++)
+            {
+                inventoryManager.AddItem(itemsToPickUp[2]);
+            }
         }
-    }
 
-    public void PickUpItem()
-    {
-        inventoryManager.AddItem(itemsToPickUp[Random.Range(0,2)]);
-    }
+        public void PickUpItem()
+        {
+            inventoryManager.AddItem(itemsToPickUp[Random.Range(0, 2)]);
+        }
 
+    }
 }
  

@@ -1,0 +1,81 @@
+{
+  "dialogueTree": [
+    {
+      "speaker": "MeowMeow",
+      "dialogue": "Xin Chào!",
+      "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "???",
+      "dialogue": "Chào cậu! Cậu là người mới à? Tôi chưa từng thấy cậu trước đây.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "MeowMeow",
+      "dialogue": "Tôi tên là MeowMeow, Trong trường hợp... à không tôi cũng không biết tại sao tôi lại ở đây nữa.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "MeowMeow",
+      "dialogue": "Một buổi sáng đẹp trời nào đó, sau khi tôi tỉnh dậy thì đã thấy mình đã ở đây rồi.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "???",
+      "dialogue": "Tôi hiểu rồi, thì ra cậu là 'kẻ xám hối'",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "MeowMeow",
+      "dialogue": "Xám hối?",
+	  "choices": [],
+      "node": "" ,
+	  "isLastNode" : false
+	},
+    {
+      "speaker": "???",
+      "dialogue": "Mọi người thường gọi như vậy. Đã từng có những người cũng xuất hiện ở đây, giống như cậu.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "MeowMeow",
+      "dialogue": "Tại sao lại như vậy?",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "???",
+      "dialogue": "Tôi cũng không biết nữa, có vẻ như là để thay đổi điều gì đó chăng? Như những câu truyện sử thi ấy.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "Krezvold",
+      "dialogue": "Mà thôi chả quan trọng. Tôi tên là Krezvold, chủ của cái cửa hàng này.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "Krezvold",
+      "dialogue": "Ở đây tôi có bán các loại hạt giống, nếu cần mua hay có bất kì câu hỏi gì thì có thể hỏi tôi.",
+	  "choices": [],
+      "node": "",
+	  "isLastNode" : true
+    }
+  ]
+}

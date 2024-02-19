@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets._Scripts.Models;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 

@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Seed Name",
+  "description": "Seed Description",
+  "icon": "seed_icon.png",
+  "priceBuy": "10 gold",
+  "priceSell": "5 gold",
+  "growTime": 3
+}

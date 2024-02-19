@@ -1,11 +1,16 @@
-﻿using System.Collections;
+﻿using Assets._Scripts.Models;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public virtual void LoadGameplayScene()
+    private void Start()
+    {
+    }
+
+    public void LoadGameplayScene()
     {
         SceneManager.LoadScene("Map 1");
     }
