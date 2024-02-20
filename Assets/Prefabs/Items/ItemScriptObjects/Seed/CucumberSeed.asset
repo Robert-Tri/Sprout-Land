@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: CucumberSeed
+  m_EditorClassIdentifier: 
+  itemName: Cucumber Seed
+  ID: 3
+  icon: {fileID: -2082342705, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: 1b4a4550c190718429170857c676ef61, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 0
+  description: "H\u1EA1t gi\u1ED1ng c\xE2y d\u01B0a leo. Tr\u1ED3ng trong v\xF2ng
+    3 ph\xFAt."
+  buyPrice: 50
+  sellPrice: 40
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0
