@@ -9,6 +9,7 @@ TagManager:
   - Platform Under Bridge
   - Bridge In Hill
   - HillZone
+  - Plant
   layers:
   - Default
   - TransparentFX
@@ -64,6 +65,9 @@ TagManager:
   - name: Fruits
     uniqueID: 3878747481
     locked: 0
+  - name: Funiture
+    uniqueID: 2505722131
+    locked: 0
   - name: Player (In Platform)
     uniqueID: 2923118573
     locked: 0
@@ -78,11 +82,21 @@ TagManager:
     locked: 0
   - name: Trees 2
     uniqueID: 149230911
+    locked: 0
+  - name: Icon
+    uniqueID: 227253501
+    locked: 0
   - name: Brige in hill
     uniqueID: 857834119
     locked: 0
   - name: Player (In Higher Platform)
     uniqueID: 681897217
+    locked: 0
+  - name: Roof
+    uniqueID: 1418647905
+    locked: 0
+  - name: Interact Text
+    uniqueID: 478860779
     locked: 0
   - name: UI
     uniqueID: 2460649727

@@ -12,10 +12,19 @@ public class PlayerMovement : MonoBehaviour
     public float pressVertical = 0;
     Vector2 moveInput;
     bool isAlive = true;
+    private InputAction hoeAction;
     // Start is called before the first frame update
     void Start()
     {
         this.animator = GetComponent<Animator>();
+        hoeAction = new InputAction(binding: "<Keyboard>/f", type: InputActionType.Button);
+        hoeAction.performed += OnHoeActionPerformed;
+        hoeAction.Enable();
+    }
+
+    private void OnHoeActionPerformed(InputAction.CallbackContext context)
+    {
+        animator.SetTrigger("TriggerHoeingRight");
     }
 
     // Update is called once per frame
@@ -23,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         this.pressHorizontal = moveInput.x;
         this.pressVertical = moveInput.y;
-        this.Move();
+        this.Move(); 
     }
 
     void OnMove(InputValue value)
@@ -47,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.fixedDeltaTime;
         transform.Translate(movement);
     }
+
+    
 
     private void MoveDownAnimation()
     {
