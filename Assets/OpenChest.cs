@@ -1,37 +1,56 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
-    protected Animator animator;
-    // Biến để xác định trạng thái của rương
-    // Hàm được gọi khi người chơi va chạm vào rương
-    private void OnTriggerEnter2D(Collider2D other)
+    private Animator anim;
+    private bool isOpen = false; // Trạng thái hiện tại của chest
+    public GameObject textObject; // Tham chiếu đến GameObject chứa chữ
+
+    void Start()
     {
-        // Kiểm tra xem đối tượng va chạm có phải là người chơi không
-        if (other.CompareTag("Player"))
+        anim = GetComponent<Animator>();
+        textObject.SetActive(false); // Ẩn chữ khi bắt đầu
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            // Kiểm tra xem rương đã mở chưa       
-                // Gọi hàm để mở rương
-                OpenChestFunction();      
+            ToggleChest();
         }
     }
 
-    // Hàm mở rương
-    private void OpenChestFunction()
+    void ToggleChest()
     {
-        // Thực hiện các thao tác mở rương ở đây
-        Debug.Log("Rương đã mở!");
-
-        // Đặt trạng thái rương thành đã mở
-        animator.SetBool("isOpenChest", true);
-        // Bạn có thể thêm các hiệu ứng âm thanh, hình ảnh, hoặc thay đổi trạng thái đồ họa ở đây
+        // Nếu chest đang mở, đóng nó
+        if (isOpen)
+        {
+            anim.SetBool("isOpen", false);
+            isOpen = false;
+        }
+        // Nếu chest đang đóng, mở nó
+        else
+        {
+            anim.SetBool("isOpen", true);
+            isOpen = true;
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    // Hiển thị chữ khi main vào vùng cảm biến của chest
+    void OnTriggerEnter(Collider other)
     {
-        this.animator = GetComponent<Animator>();
+        if (other.CompareTag("Player"))
+        {
+            textObject.SetActive(true);
+        }
+    }
+
+    // Ẩn chữ khi main ra khỏi vùng cảm biến của chest
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            textObject.SetActive(false);
+        }
     }
 }

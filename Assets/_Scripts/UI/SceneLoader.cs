@@ -14,4 +14,9 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene("Map 1");
     }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
