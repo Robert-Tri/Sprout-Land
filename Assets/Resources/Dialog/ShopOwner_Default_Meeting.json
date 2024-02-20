@@ -1,0 +1,109 @@
+{
+  "dialogueTree": [
+    {
+      "speaker": "Krezvold",
+      "dialogue": "Cậu muốn gì ở tôi nào?",
+      "choices": [
+	    {
+          "text": "Trò chuyện",
+          "nextNode": "talkNode"
+        },
+        {
+          "text": "Mua",
+          "nextNode": "buyNode"
+        },
+		{
+          "text": "Bán",
+          "nextNode": "sellNode"
+        },
+        {
+          "text": "Tạm biệt",
+          "nextNode": "byeNode"
+        }
+      ],
+      "node": "root",
+	  "isLastNode" : false
+    },
+	{
+      "speaker": "Krezvold",
+      "dialogue": "Cậu muốn trò chuyện về cái gì?",
+      "choices": [
+	    {
+          "text": "Cậu là ai?",
+          "nextNode": "talkNode1"
+        },
+        {
+          "text": "Sao nhìn cậu giống tôi thế?",
+          "nextNode": "talkNode2"
+        },
+        {
+          "text": "Không có gì.",
+          "nextNode": "root"
+        }
+      ],
+      "node": "talkNode",
+	  "isLastNode" : false
+    },
+	{
+      "speaker": "Krezvold",
+      "dialogue": "Tôi là Krezvold, Một nông dân.",
+      "choices": [
+	    {
+          "text": "Cậu là ai?",
+          "nextNode": "talkNode1"
+        },
+        {
+          "text": "Sao nhìn cậu giống tôi thế?",
+          "nextNode": "talkNode2"
+        },
+        {
+          "text": "Không có gì.",
+          "nextNode": "root"
+        }
+      ],
+      "node": "talkNode1",
+	  "isLastNode" : false
+    },
+	{
+      "speaker": "Krezvold",
+      "dialogue": "Ai mà biết được, có khi tôi với cậu là anh em sinh đôi thì sao?",
+      "choices": [
+	    {
+          "text": "Cậu là ai?",
+          "nextNode": "talkNode1"
+        },
+        {
+          "text": "Sao nhìn cậu giống tôi thế?",
+          "nextNode": "talkNode2"
+        },
+        {
+          "text": "Không có gì.",
+          "nextNode": "root"
+        }
+      ],
+      "node": "talkNode2",
+	  "isLastNode" : false
+    },
+    {
+      "speaker": "Krezvold",
+      "dialogue": "Hoan nghênh cậu đến đây.",
+      "choices": [],
+      "node": "buyNode",
+	  "isLastNode" : true
+    },
+	{
+      "speaker": "Krezvold",
+      "dialogue": "Để xem cậu có gì nào!",
+      "choices": [],
+      "node": "sellNode",
+	  "isLastNode" : true
+    },
+    {
+      "speaker": "Krezvold",
+      "dialogue": "Hẹn gặp lại.",
+      "choices": [],
+      "node": "byeNode",
+	  "isLastNode" : true
+    }
+  ]
+}
