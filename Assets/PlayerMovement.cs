@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -13,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 moveInput;
     bool isAlive = true;
     private InputAction hoeAction;
+    [SerializeField] private AudioSource moveSoundEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +50,25 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("Horizontal", movementDirection.x);
             animator.SetFloat("Vertical", movementDirection.y);
+            PlayMovementSound();
+            Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.fixedDeltaTime;
+            transform.Translate(movement);
         }
-        Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.fixedDeltaTime;
-        transform.Translate(movement);
+        else
+        {
+            moveSoundEffect.Stop();
+        }  
     }
 
-    
+    private void PlayMovementSound()
+    {
+        if (!moveSoundEffect.isPlaying)
+        {
+            moveSoundEffect.Play();
+        }
+    }
+
+
 
     private void MoveDownAnimation()
     {

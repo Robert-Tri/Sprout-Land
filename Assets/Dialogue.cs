@@ -21,6 +21,8 @@ public class Dialogue : MonoBehaviour
     public PlayerMovement playerMovement;
     public GameObject mainUI;
     private string nodeName = "";
+    [SerializeField] private AudioClip[] conversationSoundEffects;
+    private AudioSource audioSrc;
 
     public static Dialogue Instance { get => instance; set => instance = value; }
     public string NodeName { get => nodeName; set => nodeName = value; }
@@ -50,6 +52,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         Dialogue.instance = this;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -65,6 +68,7 @@ public class Dialogue : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && dialogue.activeSelf && !isButtonEnable())
         {
+            
             if (textComponent.text == dialogueLines[index].dialogue)
             {
                 NextLine();
@@ -168,6 +172,8 @@ public class Dialogue : MonoBehaviour
         nodeName = nextNode;
         if (dialogPos >= 0)
         {
+            audioSrc.clip = conversationSoundEffects[Random.Range(0, conversationSoundEffects.Length)];
+            audioSrc.Play();
             index = dialogPos;
             textComponent.text = string.Empty;
             DisableChoiceButton();
@@ -198,6 +204,8 @@ public class Dialogue : MonoBehaviour
 
     public void ShowDialogue()
     {
+        audioSrc.clip = conversationSoundEffects[Random.Range(0, conversationSoundEffects.Length)];
+        audioSrc.Play();
         dialogue.SetActive(true);
         mainUI.SetActive(false);
     }
