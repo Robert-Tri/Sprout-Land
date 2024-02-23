@@ -14,10 +14,13 @@ public class PlantSeed : MonoBehaviour
     private GameObject objectToSetPosition;
     private Vector3 worldPosition;
     public string textInteraction;
+    [SerializeField] private AudioClip sowSeedSoundEffect;
+    private AudioSource audioSrc;
 
     private void Start()
     {
         this.objectToSetPosition = new GameObject("Object Position");
+        audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -73,8 +76,9 @@ public class PlantSeed : MonoBehaviour
             {
                 worldPosition.y += 0.2f;
                 Instantiate(objectToCreate, worldPosition, Quaternion.identity);
+                audioSrc.clip = sowSeedSoundEffect;
+                audioSrc.Play();
             }
         }
     }
-
 }
