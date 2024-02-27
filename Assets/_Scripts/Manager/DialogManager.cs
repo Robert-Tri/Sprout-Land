@@ -148,7 +148,7 @@ public class DialogManager : MonoBehaviour
         if (countQuestion == 4 && countAnswer >= 2)
         {
             //lưu số câu trả lời đúng qua QpenChest để dùng
-            OpenChest.SetCountAnswer(countAnswer);
+            ManageChest.SetCountAnswer(countAnswer);
             iconChest.SetActive(true);
         }
     }
