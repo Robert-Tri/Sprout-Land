@@ -14,6 +14,7 @@ namespace Assets._Scripts.Models
         private static InventoryManager instance;
         private List<GameObjectData> items = new List<GameObjectData>();
         int selectedSlot = -1;
+        public GameObjectData selectedItem;
 
         public static InventoryManager Instance { get => instance; set => instance = value; }
 
@@ -41,29 +42,30 @@ namespace Assets._Scripts.Models
                 inventorySlots[selectedSlot].DeSelected();
             }
             inventorySlots[newValue].Selected();
+            DragableItem inventoryItem = inventorySlots[newValue].GetComponentInChildren<DragableItem>();
+            if (inventoryItem != null)
+            {
+                selectedItem = inventoryItem.item;
+            } else
+            {
+                selectedItem = null;
+            }
             selectedSlot = newValue;
         }
 
         public void AddItem(GameObjectData itemData)
         {
-            foreach (var item in items)
-            {
-                if (item != null)
-                {
-                    if ((item.item.ID == itemData.item.ID) && (item.item.isStackable == true) && (itemData.amount <= item.item.maxStackNumber))
-                    {
-                        item.amount ++;
-                    }
-                }
-            }
+            GameObjectData gameObjectData = Instantiate(itemData);
             foreach (var slot in inventorySlots)
             {
                 DragableItem inventoryItem = slot.GetComponentInChildren<DragableItem>();
-                if (inventoryItem != null && (inventoryItem.item.item.ID == itemData.item.ID) && (inventoryItem.item.item.isStackable == true) && (itemData.amount <= itemData.item.maxStackNumber))
+                if (inventoryItem != null && (inventoryItem.item.item.ID == gameObjectData.item.ID) && (inventoryItem.item.item.isStackable == true) && (inventoryItem.item.amount < inventoryItem.item.item.maxStackNumber))
                 {
                     inventoryItem.count ++;
                     inventoryItem.RefreshCount();
                     inventoryItem.item.amount ++;
+                    GameObjectData item = items.FirstOrDefault(item => item.item.ID == inventoryItem.item.item.ID);
+                    Destroy(gameObjectData.gameObject);
                     return;
                 }
             }
@@ -73,7 +75,7 @@ namespace Assets._Scripts.Models
                 DragableItem inventoryItem = slot.GetComponentInChildren<DragableItem>();
                 if (inventoryItem == null)
                 {
-                    SpawnItem(itemData, slot);
+                    SpawnItem(gameObjectData, slot);
                     return;
                 }
             }
@@ -95,11 +97,11 @@ namespace Assets._Scripts.Models
 
         public void RemoveItem(GameObjectData targetItem, int quantity)
         {
-            GameObjectData itemToRemove = items.FirstOrDefault(item => item.item.ID == targetItem.item.ID);
+            GameObjectData itemToRemove = items.FirstOrDefault(item => item.item.ID == targetItem.item.ID & item.amount == targetItem.amount);
             if (targetItem.amount == quantity)
             {
-                itemToRemove.amount = 1;
                 items.Remove(itemToRemove);
+                Destroy(targetItem.gameObject);
             }
             else
             {
@@ -116,7 +118,7 @@ namespace Assets._Scripts.Models
             foreach (var slot in inventorySlots)
             {
                 if (slot.GetComponentInChildren<DragableItem>() != null)
-                    Destroy(slot.GetComponentInChildren<DragableItem>().gameObject);
+                    DestroyImmediate(slot.GetComponentInChildren<DragableItem>().gameObject);
             }
 
             foreach (var item in items)

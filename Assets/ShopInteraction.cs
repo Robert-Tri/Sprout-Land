@@ -27,6 +27,8 @@ namespace Assets._Scripts.Models
         {
             instance = this;
             this.items = new List<GameObjectData>();
+            textObject = InteractManager.Instance.textObject;
+            interactText = InteractManager.Instance.interactText;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -34,8 +36,6 @@ namespace Assets._Scripts.Models
             if (other.CompareTag("Player"))
             {
                 isPlayerInRange = true;
-                textObject = InteractManager.Instance.textObject;
-                interactText = InteractManager.Instance.interactText;
                 interactText.text = textInteraction;
                 interactText.gameObject.SetActive(true);
                 textObject.transform.SetParent(transform);
@@ -60,7 +60,7 @@ namespace Assets._Scripts.Models
                 {
                     if (isFirstMeeting)
                     {
-                        textJson = JsonLoader.GetJsonFile("ShopOwner_Default_Meeting");
+                        textJson = JsonLoader.GetJsonFile("ShopOwner_First_Meeting");
                         isFirstMeeting = false;
                     }
                     else

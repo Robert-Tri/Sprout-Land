@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: Eggplant
+  m_EditorClassIdentifier: 
+  itemName: Eggplant
+  ID: 20
+  icon: {fileID: 566065110, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: ed714c870fea8424b8cfb2bb23505256, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 1
+  description: "M\u1ED9t lo\u1EA1i c\xE0 t\xEDm c\xF3 h\xECnh d\xE1ng tr\xF2n ho\u1EB7c
+    d\xE0i, th\u01B0\u1EDDng \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng trong n\u1EA5u
+    \u0103n \u0111\u1EC3 l\xE0m c\xE1c m\xF3n rau s\u1ED1ng ho\u1EB7c chi\xEAn"
+  buyPrice: 190
+  sellPrice: 190
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0

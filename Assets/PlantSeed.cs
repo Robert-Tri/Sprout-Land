@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets._Scripts.Models;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -14,10 +15,15 @@ public class PlantSeed : MonoBehaviour
     private GameObject objectToSetPosition;
     private Vector3 worldPosition;
     public string textInteraction;
+    [SerializeField] private AudioClip sowSeedSoundEffect;
+    private AudioSource audioSrc;
 
     private void Start()
     {
         this.objectToSetPosition = new GameObject("Object Position");
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
+        audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -31,8 +37,6 @@ public class PlantSeed : MonoBehaviour
             {
                 worldPosition = tilemap.GetCellCenterWorld(cellPosition);
                 objectToSetPosition.transform.position = worldPosition;
-                textObject = InteractManager.Instance.textObject;
-                interactText = InteractManager.Instance.interactText;
                 interactText.text = textInteraction;
                 interactText.gameObject.SetActive(true);
                 textObject.transform.SetParent(objectToSetPosition.transform);
@@ -69,12 +73,15 @@ public class PlantSeed : MonoBehaviour
     {
         if (isPlayerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && InventoryManager.Instance.selectedItem != null && InventoryManager.Instance.selectedItem.item.variety == Variety.Seed)
             {
                 worldPosition.y += 0.2f;
+                objectToCreate = InventoryManager.Instance.selectedItem.itemPrefab;
+                InventoryManager.Instance.RemoveItem(InventoryManager.Instance.selectedItem, 1);
                 Instantiate(objectToCreate, worldPosition, Quaternion.identity);
+                audioSrc.clip = sowSeedSoundEffect;
+                audioSrc.Play();
             }
         }
     }
-
 }

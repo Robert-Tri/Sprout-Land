@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CabbageSeed
   m_EditorClassIdentifier: 
   itemName: Cabbage Seed
-  ID: 4
+  ID: 2
   icon: {fileID: 343500260, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
   m_object: {fileID: 4901600797595701682, guid: c7854676c006f3041814918174d7eee2, type: 3}
   isStackable: 1
