@@ -11,7 +11,7 @@ namespace Assets._Scripts.Models
         {
             for (int i = 0; i < 5; i++)
             {
-                inventoryManager.AddItem(itemsToPickUp[2]);
+                inventoryManager.AddItem(itemsToPickUp[0]);
             }
         }
 
