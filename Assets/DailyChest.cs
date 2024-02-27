@@ -58,10 +58,10 @@ public class DailyChest : MonoBehaviour
         // Nếu chest đang mở, đóng nó
         if (isOpen)
         {
-            //InventoryManager.Instance.AddItem(items);
+            
             anim.SetBool("isOpen", false);
             isOpen = false;
-            
+            InventoryManager.Instance.AddItem(items);
             Invoke("Appear", delayAfterDisappear);
         }
         // Nếu chest đang đóng, mở nó
