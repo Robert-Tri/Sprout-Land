@@ -12,25 +12,26 @@ public class DailyItem : MonoBehaviour
     private static DailyItem instance;
     public static DailyItem Instance { get => instance; set => instance = value; }
     public float delayBeforeDisappear = 2f;
-    public GameObject Chest;
-    private OpenChest chest = new OpenChest();
+    //public GameObject Chest;
+    [SerializeField] private GameObject chest;
     
     void Update()
     {
-        // Kiểm tra nếu người dùng nhấn phím "F"
+        // Kiểm tra nếu người dùng nhấn phím "E"
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Đảo ngược trạng thái của gameObject (ẩn nếu đang hiện và hiện nếu đang ẩn)
             gameObject.SetActive(false);
+            //InventoryManager.Instance.AddItem(gameObject);
             Invoke("Disappear", delayBeforeDisappear);
-            chest.ToggleChest();
+            chest.GetComponent<DailyChest>().ToggleChest();
         }
     }
 
     void Disappear()
     {
         // Biến mất đối tượng
-        Chest.SetActive(false);
+        chest.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

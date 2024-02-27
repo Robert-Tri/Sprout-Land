@@ -131,13 +131,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // Kiểm tra xem đối tượng va chạm có phải là ruộng không
-        if (other.CompareTag("Chest"))
-        {
-            // Thực hiện teleport tới điểm đích
-            transform.position = teleportTarget.position;
-        }
-    }
+    
 }
