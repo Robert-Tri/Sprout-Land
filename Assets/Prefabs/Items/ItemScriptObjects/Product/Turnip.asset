@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: Turnip
+  m_EditorClassIdentifier: 
+  itemName: Turnip
+  ID: 27
+  icon: {fileID: -633679176, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: 3b9d4d29a1fffde409b3abde8ce10b2d, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 1
+  description: "M\u1ED9t lo\u1EA1i c\u1EE7 c\u1EA3i c\xF3 m\xE0u tr\u1EAFng ho\u1EB7c
+    t\xEDm, th\u01B0\u1EDDng \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng trong n\u1EA5u
+    \u0103n ho\u1EB7c l\xE0m m\xF3n kim chi"
+  buyPrice: 320
+  sellPrice: 320
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0
