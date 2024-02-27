@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueStarFruitSeed
   m_EditorClassIdentifier: 
   itemName: Blue Star Fruit Seed
-  ID: 2
+  ID: 1
   icon: {fileID: -3962476, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
   m_object: {fileID: 4901600797595701682, guid: 60bc6e64e37a08a4d88619bb0e3405c1, type: 3}
   isStackable: 1

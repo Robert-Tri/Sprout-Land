@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets._Scripts.Models {
+namespace Assets._Scripts.Models
+{
     public class ItemManager : MonoBehaviour
     {
         public List<GameObjectData> itemList;
@@ -32,20 +33,22 @@ namespace Assets._Scripts.Models {
 
         internal List<GameObjectData> GetSeedItemsInInventory()
         {
-            return GetSeedItems(InventoryManager.Instance.GetItems());
+            List<GameObjectData> list = GetItems(InventoryManager.Instance.GetItems(), Variety.Seed);
+            list.AddRange(GetItems(InventoryManager.Instance.GetItems(), Variety.Product));
+            return list;
         }
 
-        private List<GameObjectData> GetSeedItems(List<GameObjectData> items)
+        private List<GameObjectData> GetItems(List<GameObjectData> items, Variety variety)
         {
             List<GameObjectData> seedItems = new List<GameObjectData>();
             foreach (GameObjectData item in items)
             {
-                if (item.item.variety == Variety.Seed)
+                if (item.item.variety == variety)
                 {
                     seedItems.Add(item);
                 }
             }
             return seedItems;
         }
-    } 
+    }
 }
