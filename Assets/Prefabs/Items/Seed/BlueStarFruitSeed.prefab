@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 308b783226835bd4fb04e350e1081cc5, type: 2}
   amount: 1
+  itemPrefab: {fileID: 5709951543918765423, guid: 840b4b32c5f65b446b1c2d6da51e8e3b, type: 3}
 --- !u!212 &5133985393257525416
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -87,9 +88,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 984107857
-  m_SortingLayer: 20
-  m_SortingOrder: 1
+  m_SortingLayerID: -1834317569
+  m_SortingLayer: 18
+  m_SortingOrder: 5
   m_Sprite: {fileID: -3962476, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

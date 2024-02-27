@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: Tulip
+  m_EditorClassIdentifier: 
+  itemName: Tulip
+  ID: 26
+  icon: {fileID: -1907503318, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: b4ae405a19f60734796b618c32ba1d7e, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 1
+  description: "M\u1ED9t lo\u1EA1i hoa c\xF3 h\xECnh d\xE1ng \u0111\u1EB9p v\xE0
+    m\xE0u s\u1EAFc \u0111a d\u1EA1ng, th\u01B0\u1EDDng \u0111\u01B0\u1EE3c s\u1EED
+    d\u1EE5ng trong trang tr\xED ho\u1EB7c l\xE0m qu\xE0 t\u1EB7ng"
+  buyPrice: 155
+  sellPrice: 155
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0

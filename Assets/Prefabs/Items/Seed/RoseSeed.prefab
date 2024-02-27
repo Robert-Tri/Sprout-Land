@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 97e0fd7523db031408d3d6920ddc6eae, type: 2}
   amount: 1
+  itemPrefab: {fileID: 5709951543918765423, guid: 04ceaae3a04007f4698db4744bca693c, type: 3}
 --- !u!212 &4661118750815487065
 SpriteRenderer:
   m_ObjectHideFlags: 0

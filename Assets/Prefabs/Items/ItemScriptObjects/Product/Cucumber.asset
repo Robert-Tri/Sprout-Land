@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: Cucumber
+  m_EditorClassIdentifier: 
+  itemName: Cucumber
+  ID: 19
+  icon: {fileID: 1544322743, guid: fe168cfb4700f1c459d05ebf2a4fc6b0, type: 3}
+  m_object: {fileID: 4901600797595701682, guid: 5d44d054ee1e90c4c91999cf6263ed68, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 1
+  description: "M\u1ED9t lo\u1EA1i d\u01B0a chu\u1ED9t c\xF3 v\u1ECB m\xE1t v\xE0
+    gi\u1EEF n\u01B0\u1EDBc, th\u01B0\u1EDDng \u0111\u01B0\u1EE3c s\u1EED d\u1EE5ng
+    trong salad ho\u1EB7c l\xE0m m\xF3n \u0103n m\xE1t"
+  buyPrice: 62
+  sellPrice: 62
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0
