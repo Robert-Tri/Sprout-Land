@@ -8,10 +8,6 @@ namespace Assets._Scripts.Models
         public int amount = 1;
         public GameObject itemPrefab;
 
-        public GameObjectData()
-        {
-        }
-
         public void Awake()
         {
             amount = 1;

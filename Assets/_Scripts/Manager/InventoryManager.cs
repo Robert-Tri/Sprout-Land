@@ -12,13 +12,13 @@ namespace Assets._Scripts.Models
         public InventorySlot[] inventorySlots;
         public GameObject inventoryItemPrefab;
         private static InventoryManager instance;
-        private List<GameObjectData> items = new List<GameObjectData>();
+        public InventoryData inventoryData;
         int selectedSlot = -1;
         public GameObjectData selectedItem;
 
         public static InventoryManager Instance { get => instance; set => instance = value; }
 
-        private void Start()
+        private void Awake()
         {
             instance = this;
             ChangeSelectedSlot(0);
@@ -64,7 +64,7 @@ namespace Assets._Scripts.Models
                     inventoryItem.count ++;
                     inventoryItem.RefreshCount();
                     inventoryItem.item.amount ++;
-                    GameObjectData item = items.FirstOrDefault(item => item.item.ID == inventoryItem.item.item.ID);
+                    GameObjectData item = inventoryData.items.FirstOrDefault(item => item.item.ID == inventoryItem.item.item.ID);
                     Destroy(gameObjectData.gameObject);
                     return;
                 }
@@ -87,20 +87,20 @@ namespace Assets._Scripts.Models
             GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
             DragableItem inventoryItem = newItem.GetComponent<DragableItem>();
             inventoryItem.InitialiseItem(item);
-            items.Add(item);
+            inventoryData.items.Add(item);
         }
 
         public List<GameObjectData> GetItems()
         {
-            return items;
+            return inventoryData.items;
         }
 
         public void RemoveItem(GameObjectData targetItem, int quantity)
         {
-            GameObjectData itemToRemove = items.FirstOrDefault(item => item.item.ID == targetItem.item.ID & item.amount == targetItem.amount);
+            GameObjectData itemToRemove = inventoryData.items.FirstOrDefault(item => item.item.ID == targetItem.item.ID & item.amount == targetItem.amount);
             if (targetItem.amount == quantity)
             {
-                items.Remove(itemToRemove);
+                inventoryData.items.Remove(itemToRemove);
                 Destroy(targetItem.gameObject);
             }
             else
@@ -121,7 +121,7 @@ namespace Assets._Scripts.Models
                     DestroyImmediate(slot.GetComponentInChildren<DragableItem>().gameObject);
             }
 
-            foreach (var item in items)
+            foreach (var item in inventoryData.items)
             {
                 foreach (var slot in inventorySlots)
                 {
