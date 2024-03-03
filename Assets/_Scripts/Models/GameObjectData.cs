@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Assets._Scripts.Models
 {
+    [System.Serializable]
     public class GameObjectData : MonoBehaviour
     {
         public Item item;

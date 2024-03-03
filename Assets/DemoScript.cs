@@ -9,10 +9,6 @@ namespace Assets._Scripts.Models
         public GameObjectData[] itemsToPickUp;
         private void Start()
         {
-            for (int i = 0; i < 5; i++)
-            {
-                inventoryManager.AddItem(itemsToPickUp[0]);
-            }
         }
 
         public void PickUpItem()

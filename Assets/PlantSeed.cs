@@ -21,9 +21,13 @@ public class PlantSeed : MonoBehaviour
     private void Start()
     {
         this.objectToSetPosition = new GameObject("Object Position");
+        audioSrc = GetComponent<AudioSource>();
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
         textObject = InteractManager.Instance.textObject;
         interactText = InteractManager.Instance.interactText;
-        audioSrc = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -78,7 +82,8 @@ public class PlantSeed : MonoBehaviour
                 worldPosition.y += 0.2f;
                 objectToCreate = InventoryManager.Instance.selectedItem.itemPrefab;
                 InventoryManager.Instance.RemoveItem(InventoryManager.Instance.selectedItem, 1);
-                Instantiate(objectToCreate, worldPosition, Quaternion.identity);
+                GameObject plant = Instantiate(objectToCreate, worldPosition, Quaternion.identity);
+                PlantManager.Instance.Plants.plants.Add(plant);
                 audioSrc.clip = sowSeedSoundEffect;
                 audioSrc.Play();
             }

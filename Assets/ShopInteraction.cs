@@ -27,6 +27,10 @@ namespace Assets._Scripts.Models
         {
             instance = this;
             this.items = new List<GameObjectData>();
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
         }
