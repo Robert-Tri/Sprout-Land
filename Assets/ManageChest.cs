@@ -11,7 +11,8 @@ public class ManageChest : MonoBehaviour
     public GameObject award2;
     public GameObject award3;
     public GameObject award4;
-
+    [SerializeField] private AudioClip openChestSoundEffect;
+    [SerializeField] private AudioSource audioSrc;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,7 @@ public class ManageChest : MonoBehaviour
             // Kiểm tra xem rương đã mở chưa 
             if (!animator.GetBool("isOpenChest"))
             {
+                
                 // Gọi hàm để mở rương
                 OpenChestFunction();
             }
@@ -61,8 +63,8 @@ public class ManageChest : MonoBehaviour
             award4.SetActive(true);
 
         }
-
-
+        audioSrc.clip = openChestSoundEffect;
+        audioSrc.Play();
 
     }
 
