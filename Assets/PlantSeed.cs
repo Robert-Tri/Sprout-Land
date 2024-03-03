@@ -39,6 +39,12 @@ public class PlantSeed : MonoBehaviour
             TileBase tile = tilemap.GetTile(cellPosition);
             if (tile != null && tile.name == "Tilled_Dirt_11" && !ObjectExistsAtPosition(cellPosition))
             {
+                if (InteractManager.Instance.textObject == null)
+                {
+                    InteractManager.Instance.CreateInteractText();
+                }
+                textObject = InteractManager.Instance.textObject;
+                interactText = InteractManager.Instance.interactText;
                 worldPosition = tilemap.GetCellCenterWorld(cellPosition);
                 objectToSetPosition.transform.position = worldPosition;
                 interactText.text = textInteraction;

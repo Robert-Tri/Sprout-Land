@@ -58,6 +58,8 @@ public class PlantGrowing : MonoBehaviour
                 {
                     InteractManager.Instance.CreateInteractText();
                 }
+                textObject = InteractManager.Instance.textObject;
+                interactText = InteractManager.Instance.interactText;
                 isPlayerInRange = true;
                 interactText.text = textInteraction;
                 interactText.gameObject.SetActive(true);

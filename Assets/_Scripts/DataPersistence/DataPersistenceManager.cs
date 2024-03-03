@@ -41,7 +41,6 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
         GlobalControl.Instance.inventoryData.items.Clear();
-        InventoryManager.Instance.RefreshInventory();
         foreach (var itemData in gameData.inventoryData.items)
         {
             Item item = GlobalControl.Instance.dataList.GetItemById(itemData.itemId);
@@ -56,7 +55,6 @@ public class DataPersistenceManager : MonoBehaviour
                 GlobalControl.Instance.inventoryData.items.Add(gameObjectData);
             }
         }
-        InventoryManager.Instance.RefreshInventory();
         GlobalControl.Instance.resourceData.resources.Clear();
         foreach (var r in gameData.resourceData.resources)
         {
