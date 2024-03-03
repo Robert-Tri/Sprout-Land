@@ -1,31 +1,42 @@
 using Assets._Scripts.Models;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour
+public class ResourceManager : MonoBehaviour, IDataPersistence
 {
     private static ResourceManager instance;
     public Text goldText;
-    public List<Resource> resource;
+    public ResourceData resourceData;
 
     public static ResourceManager Instance { get => instance; set => instance = value; }
 
     private void Awake()
     {
-        resource = new List<Resource>
-        {
-            new Resource("Gold", 2000)
-        };
+        if (FindResourceByName("Gold")  == null) resourceData.resources.Add(new Resource("Gold", 2000));
         goldText.text = FindResourceByName("Gold").Quantity.ToString();
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one Resource Manager in the scene.");
+            Destroy(gameObject);
+        }
         instance = this;
+    }
+    private void Start()
+    {
+        this.resourceData = GlobalControl.Instance.resourceData;
+    }
+    public void SaveResource()
+    {
+        GlobalControl.Instance.resourceData = this.resourceData;
     }
 
     public void AddGold(int amount)
     {
-        foreach (Resource r in resource) 
+        foreach (Resource r in resourceData.resources) 
         {
             if (r.Name.Equals("Gold"))
             {
@@ -37,7 +48,7 @@ public class ResourceManager : MonoBehaviour
 
     public bool SpendGold(int amount)
     {
-        foreach (Resource r in resource)
+        foreach (Resource r in resourceData.resources)
         {
             if (r.Name.Equals("Gold"))
             {
@@ -57,11 +68,33 @@ public class ResourceManager : MonoBehaviour
     }
     public Resource FindResourceByName(string name)
     {
-        return resource.FirstOrDefault(resource => resource.Name == name);
+        return resourceData.resources.FirstOrDefault(resource => resource.Name == name);
     }
 
     private void SetGoldText(string goldText)
     {
         this.goldText.text = goldText;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data = new GameData();
+        foreach (Resource r in resourceData.resources)
+        {
+            data.resourceData.resources.Add(new ResourceDTO
+            {
+                name = r.Name,
+                quantity = r.Quantity
+            });
+        }
+    }
+
+    public void LoadData(GameData data)
+    {
+        resourceData.resources.Clear();
+        foreach (var r in data.resourceData.resources)
+        {
+            resourceData.resources.Add(new Resource(r.name, r.quantity));
+        }
     }
 }

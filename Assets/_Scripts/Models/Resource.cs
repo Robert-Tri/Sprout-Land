@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Assets._Scripts.Models
 {
+    [System.Serializable]
     public class Resource
     {
         private string name;
@@ -17,8 +18,8 @@ namespace Assets._Scripts.Models
 
         public Resource(string name, int quantity)
         {
-            Name = name;
-            Quantity = quantity;
+            this.name = name;
+            this.quantity = quantity;
         }
     }
 }

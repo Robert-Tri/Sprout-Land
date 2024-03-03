@@ -17,6 +17,9 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        DestroyImmediate(GlobalControl.Instance.gameObject);
+        DestroyImmediate(InteractManager.Instance.gameObject);
+        DestroyImmediate(DataPersistenceManager.Instance.gameObject);
         SceneManager.LoadScene("Main Menu");
     }
 }
