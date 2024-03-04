@@ -10,6 +10,8 @@ TagManager:
   - Bridge In Hill
   - HillZone
   - Plant
+  - Chest
+  - Fence
   layers:
   - Default
   - TransparentFX
