@@ -206,11 +206,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growTime: 5
+  totalGrowTime: 0
   maxStage: 4
   textInteraction: '[E] Harvest'
   productPrefab: {fileID: 2173138672755165025, guid: eef8211125440314e98da21b9a7a19a2, type: 3}
+  seedPrefab: {fileID: 2173138672755165025, guid: 60bc6e64e37a08a4d88619bb0e3405c1, type: 3}
   harvestAmount: 1
   doubleChange: 0.2
+  position: {x: 0, y: 0, z: 0}
 --- !u!61 &1641844969621156095
 BoxCollider2D:
   m_ObjectHideFlags: 0

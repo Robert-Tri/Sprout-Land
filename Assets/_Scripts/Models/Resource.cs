@@ -7,13 +7,11 @@ using UnityEngine;
 
 namespace Assets._Scripts.Models
 {
+    [System.Serializable]
     public class Resource
     {
-        private string name;
-        private int quantity;
-
-        public string Name { get => name; set => name = value; }
-        public int Quantity { get => quantity; set => quantity = value; }
+        public string Name;
+        public int Quantity;
 
         public Resource(string name, int quantity)
         {

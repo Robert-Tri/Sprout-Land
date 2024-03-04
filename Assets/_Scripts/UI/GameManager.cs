@@ -12,4 +12,16 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         #endif
     }
+    public void LoadGame()
+    {
+        DataPersistenceManager.Instance.LoadGame();
+    }
+    public void SaveGame()
+    {
+        DataPersistenceManager.Instance.SaveGame();
+    }
+    public void NewGame()
+    {
+        DataPersistenceManager.Instance.NewGame();
+    }
 }

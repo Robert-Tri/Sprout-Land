@@ -3759,10 +3759,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_243
       rect:
         serializedVersion: 2
-        x: 432
-        y: 160
-        width: 16
-        height: 16
+        x: 434
+        y: 151
+        width: 28
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4032,10 +4032,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_256
       rect:
         serializedVersion: 2
-        x: 640
-        y: 160
-        width: 16
-        height: 16
+        x: 645
+        y: 148
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4074,10 +4074,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_258
       rect:
         serializedVersion: 2
-        x: 672
-        y: 160
-        width: 16
-        height: 16
+        x: 677
+        y: 148
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4200,10 +4200,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_264
       rect:
         serializedVersion: 2
-        x: 768
-        y: 160
-        width: 16
-        height: 16
+        x: 773
+        y: 148
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4242,10 +4242,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_266
       rect:
         serializedVersion: 2
-        x: 800
-        y: 160
-        width: 16
-        height: 16
+        x: 805
+        y: 148
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4284,10 +4284,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_268
       rect:
         serializedVersion: 2
-        x: 832
-        y: 160
-        width: 16
-        height: 16
+        x: 837
+        y: 148
+        width: 22
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -4326,10 +4326,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_270
       rect:
         serializedVersion: 2
-        x: 864
-        y: 160
-        width: 16
-        height: 16
+        x: 869
+        y: 148
+        width: 22
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -5439,10 +5439,10 @@ TextureImporter:
       name: Sprite sheet for Basic Pack_353
       rect:
         serializedVersion: 2
-        x: 432
-        y: 128
-        width: 16
-        height: 16
+        x: 434
+        y: 119
+        width: 28
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -16763,7 +16763,7 @@ TextureImporter:
         width: 48
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

@@ -1,0 +1,108 @@
+{
+  "questionTree": [
+    {
+      "question": "Đại dương nào lớn nhất trên thế giới?",
+      "answers": [
+        {
+          "text": "Đại Tây Dương",
+          "isCorrect": true
+        },
+        {
+          "text": "Biển Đỏ",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Bức tranh nổi tiếng 'Mona Lisa' được vẽ bởi họa sĩ nào?",
+      "answers": [
+        {
+          "text": "Leonardo da Vinci",
+          "isCorrect": true
+        },
+        {
+          "text": "Pablo Picasso",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Kết quả của phép tính 5 + 8 là bao nhiêu?",
+      "answers": [
+        {
+          "text": "8",
+          "isCorrect": false
+        },
+        {
+          "text": "13",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "question": "Bài tập nào là tốt cho sức khỏe tim mạch?",
+      "answers": [
+        {
+          "text": "Ngủ nghỉ",
+          "isCorrect": false
+        },
+        {
+          "text": "Chạy nhanh",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "question": "Tích của 7 và 8 là bao nhiêu?",
+      "answers": [
+        {
+          "text": "56",
+          "isCorrect": true
+        },
+        {
+          "text": "65",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Đường xích đạo chia đất liền thành bao nhiêu phần?",
+      "answers": [
+        {
+          "text": "3",
+          "isCorrect": false
+        },
+        {
+          "text": "2",
+          "isCorrect": true
+        }
+      ]
+    },
+    {
+      "question": "Thủ đô của nước Anh là thành phố nào?",
+      "answers": [
+        {
+          "text": "London",
+          "isCorrect": true
+        },
+        {
+          "text": "Paris",
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "question": "Nếu bạn có 15 quả táo và bạn muốn chia đều cho 3 người bạn, mỗi người sẽ nhận được bao nhiêu quả?",
+      "answers": [
+        {
+          "text": "5",
+          "isCorrect": true
+        },
+        {
+          "text": "6",
+          "isCorrect": false
+        }
+      ]
+    }
+  ]
+}

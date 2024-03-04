@@ -14,6 +14,11 @@ namespace Assets._Scripts.Models
 
         private void Start()
         {
+            if (Instance != null)
+            {
+                Debug.Log("Found more than one Item Manager in the scene.");
+                Destroy(gameObject);
+            }
             instance = this;
         }
         public List<GameObjectData> GetSeedItems()
