@@ -173,3 +173,4 @@ MonoBehaviour:
   item: {fileID: 0}
   count: 1
   parentAfterDrag: {fileID: 0}
+  popupPrefab: {fileID: 6921365080718790025, guid: daa85b3e9600e8640853d8ac86cfaa06, type: 3}

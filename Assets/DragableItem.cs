@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace Assets._Scripts.Models
 {
-    public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [Header("UI")]
         public Image image;
@@ -12,6 +12,14 @@ namespace Assets._Scripts.Models
         [HideInInspector] public GameObjectData item;
         [HideInInspector] public int count = 1;
         [HideInInspector] public Transform parentAfterDrag;
+        public GameObject popupPrefab;
+        private GameObject popupInstance;
+        private void Start()
+        {
+            Vector3 newPosition = transform.position + Vector3.right * 1.5f;
+            popupInstance = Instantiate(popupPrefab, newPosition, Quaternion.identity, transform);
+            popupInstance.SetActive(false);
+        }
 
         public void OnBeginDrag(PointerEventData eventData)
         { 
@@ -36,6 +44,16 @@ namespace Assets._Scripts.Models
         {
             transform.SetParent(parentAfterDrag);
             image.raycastTarget = true;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            popupInstance.GetComponent<ItemPopup>().ShowPopup(item.item);
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            popupInstance.GetComponent<ItemPopup>().HidePopup();
         }
 
         public void InitialiseItem(GameObjectData item)

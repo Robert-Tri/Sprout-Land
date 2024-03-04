@@ -15,6 +15,7 @@ public class TeleportTrigger : MonoBehaviour
             if (InventoryManager.Instance != null) InventoryManager.Instance.SaveInventory();
             if (ResourceManager.Instance != null) ResourceManager.Instance.SaveResource();
             if (PlantManager.Instance != null) PlantManager.Instance.SavePlant();
+            if (ShopInteraction.Instance != null) ShopInteraction.Instance.SaveShopInteraction();
             SceneManager.LoadScene(teleportLocation);
         }
     }

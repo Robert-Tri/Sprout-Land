@@ -13,6 +13,8 @@ public class GameData
     public ResourceDataDTO resourceData;
     [SerializeField]
     public List<PlantDTO> plantData;
+    [SerializeField]
+    public bool isFirstMeeting = true;
 
     public GameData ()
     {

@@ -8,6 +8,7 @@ public class GlobalControl : MonoBehaviour
     public InventoryData inventoryData;
     public ResourceData resourceData;
     public PlantData plantData;
+    public bool isFirstMeeting = true;
     public DataList dataList; 
     public static GlobalControl Instance;
     void Awake()

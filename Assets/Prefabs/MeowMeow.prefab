@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2679564867197270067}
   - component: {fileID: 2204606906576710051}
   - component: {fileID: 6289151027108433458}
-  - component: {fileID: 8206350117822123485}
   - component: {fileID: 1154395922250831253}
   m_Layer: 0
   m_Name: MeowMeow
@@ -126,6 +125,7 @@ MonoBehaviour:
   speed: 5
   pressHorizontal: 0
   pressVertical: 0
+  moveSoundEffect: {fileID: 0}
 --- !u!50 &6289151027108433458
 Rigidbody2D:
   serializedVersion: 4
@@ -153,36 +153,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8206350117822123485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 218042107002591899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 62a1a9a170b159749b5e9afbf36bf40f, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!70 &1154395922250831253
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
