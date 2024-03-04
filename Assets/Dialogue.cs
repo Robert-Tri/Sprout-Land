@@ -18,7 +18,8 @@ public class Dialogue : MonoBehaviour
     private List<DialogueNode> dialogueLines;
     private static Dialogue instance;
     public Button[] choiceButtons;
-    public PlayerMovement playerMovement;
+    private GameObject player;
+    private PlayerMovement playerMovement;
     public GameObject mainUI;
     private string nodeName = "";
     [SerializeField] private AudioClip[] conversationSoundEffects;
@@ -51,13 +52,26 @@ public class Dialogue : MonoBehaviour
     }
     void Start()
     {
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one Dialogue in the scene.");
+            Destroy(gameObject);
+        }
         Dialogue.instance = this;
         audioSrc = GetComponent<AudioSource>();
     }
-
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player = GameObject.Find("MeowMeow");
+            if (player == null)
+            {
+                return;
+            }
+            playerMovement = player.GetComponent<PlayerMovement>();
+        }
         if (dialogue.activeSelf)
         {
             playerMovement.enabled = false;

@@ -15,13 +15,18 @@ namespace Assets._Scripts.Models
 
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.Log("Found more than one Player in the scene.");
+                Destroy(gameObject);
+            }
             Player.instance = this;
             resourceManager = ResourceManager.Instance;
         }
 
         public bool PurchaseItemWithGold(int goldCost)
         {
-            foreach (var resource in resourceManager.resource)
+            foreach (var resource in resourceManager.resourceData.resources)
             {
                 if (resourceManager.SpendGold(goldCost))
                 {
