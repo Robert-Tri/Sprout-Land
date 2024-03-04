@@ -63,7 +63,7 @@ public class DialogManager : MonoBehaviour
     {
         iconChest.SetActive(false);
 
-        TextAsset jsonFile = JsonLoader.GetJsonFile("bocauhoiMap2");
+        TextAsset jsonFile = JsonLoader.GetJsonFile("Dialog/bocauhoiMap2");
         string jsonText = jsonFile.text;
         QuestionData data = JsonUtility.FromJson<QuestionData>(jsonText);
         questions = data.questionTree;

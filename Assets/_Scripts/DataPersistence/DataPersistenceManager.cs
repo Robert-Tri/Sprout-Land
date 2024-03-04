@@ -11,7 +11,6 @@ public class DataPersistenceManager : MonoBehaviour
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
     private GameData gameData;
-    private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler fileDataHandler;
     public static DataPersistenceManager Instance { get; private set; }
     private void Awake()
@@ -40,6 +39,7 @@ public class DataPersistenceManager : MonoBehaviour
             Debug.Log("No data was found. Initializing data to defaults.");
             NewGame();
         }
+        GlobalControl.Instance.isFirstMeeting = gameData.isFirstMeeting;
         GlobalControl.Instance.inventoryData.items.Clear();
         foreach (var itemData in gameData.inventoryData.items)
         {
@@ -106,6 +106,7 @@ public class DataPersistenceManager : MonoBehaviour
     public void SaveGame()
     {
         gameData = new GameData();
+        gameData.isFirstMeeting = GlobalControl.Instance.isFirstMeeting;
         foreach (var item in GlobalControl.Instance.inventoryData.items)
         {
             GameObjectDataDTO objectData = new GameObjectDataDTO();

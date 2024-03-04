@@ -6,7 +6,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ResourceManager : MonoBehaviour, IDataPersistence
+public class ResourceManager : MonoBehaviour
 {
     private static ResourceManager instance;
     public Text goldText;
@@ -16,7 +16,6 @@ public class ResourceManager : MonoBehaviour, IDataPersistence
 
     private void Awake()
     {
-        if (FindResourceByName("Gold")  == null) resourceData.resources.Add(new Resource("Gold", 2000));
         goldText.text = FindResourceByName("Gold").Quantity.ToString();
         if (Instance != null)
         {
@@ -74,27 +73,5 @@ public class ResourceManager : MonoBehaviour, IDataPersistence
     private void SetGoldText(string goldText)
     {
         this.goldText.text = goldText;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data = new GameData();
-        foreach (Resource r in resourceData.resources)
-        {
-            data.resourceData.resources.Add(new ResourceDTO
-            {
-                name = r.Name,
-                quantity = r.Quantity
-            });
-        }
-    }
-
-    public void LoadData(GameData data)
-    {
-        resourceData.resources.Clear();
-        foreach (var r in data.resourceData.resources)
-        {
-            resourceData.resources.Add(new Resource(r.name, r.quantity));
-        }
     }
 }

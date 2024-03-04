@@ -288,6 +288,7 @@ MonoBehaviour:
   inventoryData: {fileID: 11400000, guid: 4cb72c52aad2dd34f8905bf8f6ec0e45, type: 2}
   resourceData: {fileID: 11400000, guid: 58c3065dfb33ca64c8691c24fa846bb2, type: 2}
   plantData: {fileID: 11400000, guid: 68322e5cccee5874da4b0a1fa1e56407, type: 2}
+  isFirstMeeting: 1
   dataList: {fileID: 11400000, guid: 8db5392cb4edee647bbea37a4190cea0, type: 2}
 --- !u!4 &112888861
 Transform:

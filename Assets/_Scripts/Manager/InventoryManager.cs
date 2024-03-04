@@ -9,7 +9,7 @@ using static UnityEngine.GraphicsBuffer;
 
 namespace Assets._Scripts.Models
 {
-    public class InventoryManager : MonoBehaviour //, IDataPersistence
+    public class InventoryManager : MonoBehaviour
     {
         public InventorySlot[] inventorySlots;
         public GameObject inventoryItemPrefab;
@@ -157,61 +157,6 @@ namespace Assets._Scripts.Models
                 }
             }
         }
-
-/*        public void SaveData(ref GameData data)
-        {
-            foreach (var item in inventoryData.items)
-            {
-                GameObjectDataDTO objectData = new GameObjectDataDTO();
-                objectData.amount = item.amount;
-                objectData.item.itemName = item.item.itemName;
-                objectData.item.ID = item.item.ID;
-                objectData.item.icon = item.item.icon;
-                objectData.item.m_object = item.item.m_object;
-                objectData.item.isStackable = item.item.isStackable;
-                objectData.item.maxStackNumber = item.item.maxStackNumber;
-                objectData.item.variety = item.item.variety;
-                objectData.item.description = item.item.description;
-                objectData.item.buyPrice = item.item.buyPrice;
-                objectData.item.sellPrice = item.item.sellPrice;
-                objectData.item.clipOnUse = item.item.clipOnUse;
-                objectData.item.playClipTimes = item.item.playClipTimes;
-                data.inventoryData.items.Add(objectData);
-            }
-        }
-
-        public void LoadData(GameData data)
-        {
-            inventoryData.items.Clear(); // Xóa hết các phần tử trong danh sách trước khi thêm mới
-
-            foreach (var itemData in data.inventoryData.items)
-            {
-                Item newItem = new Item
-                {
-                    itemName = itemData.item.itemName,
-                    ID = itemData.item.ID,
-                    icon = itemData.item.icon,
-                    m_object = itemData.item.m_object,
-                    isStackable = itemData.item.isStackable,
-                    maxStackNumber = itemData.item.maxStackNumber,
-                    variety = itemData.item.variety,
-                    description = itemData.item.description,
-                    buyPrice = itemData.item.buyPrice,
-                    sellPrice = itemData.item.sellPrice,
-                    clipOnUse = itemData.item.clipOnUse,
-                    playClipTimes = itemData.item.playClipTimes
-                };
-
-                GameObjectData gameObjectData = new GameObjectData
-                {
-                    amount = itemData.amount,
-                    item = newItem,
-                    itemPrefab = itemData.itemPrefab
-                };
-
-                inventoryData.items.Add(gameObjectData);
-            }
-        } */
     }
 }
 
