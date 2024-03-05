@@ -1,40 +1,33 @@
-﻿using Assets._Scripts.Models;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Claims;
 using UnityEngine;
 
-public class DailyItem : MonoBehaviour
+public class TeleportShip : MonoBehaviour
 {
     private GameObject textObject; // Tham chiếu đến GameObject chứa chữ
     private bool isPlayerInRange = false;
     private TextMesh interactText;
     public string textInteraction;
-    private List<GameObjectData> items;
-    private static DailyItem instance;
-    public static DailyItem Instance { get => instance; set => instance = value; }
-    public float delayBeforeDisappear = 2f;
-    //public GameObject Chest;
-    [SerializeField] private GameObject chest;
-    
+    public GameObject panelTeleport;
+    private static TeleportShip instance;
+    public static TeleportShip Instance { get => instance; set => instance = value; }
+    // Start is called before the first frame update
+    void Start()
+    {
+       
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (isPlayerInRange)
         {
-            // Kiểm tra nếu người dùng nhấn phím "E"
             if (Input.GetKeyDown(KeyCode.E))
             {
-                // Đảo ngược trạng thái của gameObject (ẩn nếu đang hiện và hiện nếu đang ẩn)
-                gameObject.SetActive(false);
-                //InventoryManager.Instance.AddItem(gameObject);
-                Invoke("Disappear", delayBeforeDisappear);
-                chest.GetComponent<DailyChest>().ToggleChest();
+                panelTeleport.SetActive(true);
             }
         }
-    }
-
-    void Disappear()
-    {
-        // Biến mất đối tượng
-        chest.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
