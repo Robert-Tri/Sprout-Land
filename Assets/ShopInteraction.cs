@@ -1,4 +1,5 @@
 using Assets._Scripts.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,8 +28,13 @@ namespace Assets._Scripts.Models
         {
             instance = this;
             this.items = new List<GameObjectData>();
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
+            isFirstMeeting = GlobalControl.Instance.isFirstMeeting;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -60,12 +66,12 @@ namespace Assets._Scripts.Models
                 {
                     if (isFirstMeeting)
                     {
-                        textJson = JsonLoader.GetJsonFile("ShopOwner_First_Meeting");
+                        textJson = JsonLoader.GetJsonFile("Dialog/ShopOwner_First_Meeting");
                         isFirstMeeting = false;
                     }
                     else
                     {
-                        textJson = JsonLoader.GetJsonFile("ShopOwner_Default_Meeting");
+                        textJson = JsonLoader.GetJsonFile("Dialog/ShopOwner_Default_Meeting");
                     }
                     Dialogue.Instance.ShowDialogue();
                     Dialogue.Instance.SetDialogueJson(textJson);
@@ -118,6 +124,11 @@ namespace Assets._Scripts.Models
         public void RefreshListItem()
         {
             items.Clear();
+        }
+
+        public void SaveShopInteraction()
+        {
+            GlobalControl.Instance.isFirstMeeting = isFirstMeeting;
         }
     }
 }

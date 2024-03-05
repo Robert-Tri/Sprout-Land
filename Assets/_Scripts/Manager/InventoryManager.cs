@@ -1,7 +1,9 @@
+﻿using Assets._Scripts.DataPersistence.Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -12,17 +14,33 @@ namespace Assets._Scripts.Models
         public InventorySlot[] inventorySlots;
         public GameObject inventoryItemPrefab;
         private static InventoryManager instance;
-        private List<GameObjectData> items = new List<GameObjectData>();
+        public InventoryData inventoryData;
         int selectedSlot = -1;
         public GameObjectData selectedItem;
 
         public static InventoryManager Instance { get => instance; set => instance = value; }
 
-        private void Start()
+        private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.Log("Found more than one Inventory Manager in the scene.");
+                Destroy(gameObject);
+            }
             instance = this;
             ChangeSelectedSlot(0);
         }
+
+        private void Start()
+        {
+            this.inventoryData = GlobalControl.Instance.inventoryData;
+            RefreshInventory();
+        }
+        public void SaveInventory()
+        {
+            GlobalControl.Instance.inventoryData = this.inventoryData;
+        }
+
         private void Update()
         {
             if(Input.inputString != null)
@@ -56,6 +74,9 @@ namespace Assets._Scripts.Models
         public void AddItem(GameObjectData itemData)
         {
             GameObjectData gameObjectData = Instantiate(itemData);
+            GameObject globalObject = GameObject.Find("GlobalObject");
+            gameObjectData.transform.SetParent(globalObject.transform);
+            gameObjectData.transform.localPosition = new Vector3(0f, 100f, 0f);
             foreach (var slot in inventorySlots)
             {
                 DragableItem inventoryItem = slot.GetComponentInChildren<DragableItem>();
@@ -64,7 +85,7 @@ namespace Assets._Scripts.Models
                     inventoryItem.count ++;
                     inventoryItem.RefreshCount();
                     inventoryItem.item.amount ++;
-                    GameObjectData item = items.FirstOrDefault(item => item.item.ID == inventoryItem.item.item.ID);
+                    GameObjectData item = inventoryData.items.FirstOrDefault(item => item.item.ID == inventoryItem.item.item.ID);
                     Destroy(gameObjectData.gameObject);
                     return;
                 }
@@ -87,20 +108,20 @@ namespace Assets._Scripts.Models
             GameObject newItem = Instantiate(inventoryItemPrefab, slot.transform);
             DragableItem inventoryItem = newItem.GetComponent<DragableItem>();
             inventoryItem.InitialiseItem(item);
-            items.Add(item);
+            inventoryData.items.Add(item);
         }
 
         public List<GameObjectData> GetItems()
         {
-            return items;
+            return inventoryData.items;
         }
 
         public void RemoveItem(GameObjectData targetItem, int quantity)
         {
-            GameObjectData itemToRemove = items.FirstOrDefault(item => item.item.ID == targetItem.item.ID & item.amount == targetItem.amount);
+            GameObjectData itemToRemove = inventoryData.items.FirstOrDefault(item => item.item.ID == targetItem.item.ID & item.amount == targetItem.amount);
             if (targetItem.amount == quantity)
             {
-                items.Remove(itemToRemove);
+                inventoryData.items.Remove(itemToRemove);
                 Destroy(targetItem.gameObject);
             }
             else
@@ -113,7 +134,7 @@ namespace Assets._Scripts.Models
             RefreshInventory();
         }
 
-        private void RefreshInventory()
+        public void RefreshInventory()
         {
             foreach (var slot in inventorySlots)
             {
@@ -121,7 +142,7 @@ namespace Assets._Scripts.Models
                     DestroyImmediate(slot.GetComponentInChildren<DragableItem>().gameObject);
             }
 
-            foreach (var item in items)
+            foreach (var item in inventoryData.items)
             {
                 foreach (var slot in inventorySlots)
                 {

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -28,15 +28,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        this.pressHorizontal = moveInput.x;
-        this.pressVertical = moveInput.y;
-        this.Move(); 
-    }
-
-    void OnMove(InputValue value)
-    {
-        if (!isAlive) { return; }
-        moveInput = value.Get<Vector2>();
+        this.pressHorizontal = Input.GetAxisRaw("Horizontal");
+        this.pressVertical = Input.GetAxisRaw("Vertical");
+        this.Move();
     }
 
     private void Move()
@@ -51,13 +45,13 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Horizontal", movementDirection.x);
             animator.SetFloat("Vertical", movementDirection.y);
             PlayMovementSound();
-            Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.fixedDeltaTime;
+            Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.deltaTime;
             transform.Translate(movement);
         }
         else
         {
             moveSoundEffect.Stop();
-        }  
+        }
     }
 
     private void PlayMovementSound()

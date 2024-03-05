@@ -14,9 +14,18 @@ public class InteractManager : MonoBehaviour
 
     private void Awake()
     {
-        InteractManager.instance = this;
+        if (Instance != null)
+        {
+            Debug.Log("Found more than one Interact Manager in the scene.");
+            Destroy(gameObject);
+        }
+        instance = this;
     }
     private void Start()
+    {
+        CreateInteractText();
+    }
+    public void CreateInteractText()
     {
         textObject = new GameObject("InteractText");
         interactText = textObject.AddComponent<TextMesh>();
@@ -30,5 +39,5 @@ public class InteractManager : MonoBehaviour
         interactText.fontSize = 20;
         textObject.transform.SetParent(transform);
         textObject.transform.localPosition = new Vector3(0f, 0.5f, 0f);
-        }
+    }
 }

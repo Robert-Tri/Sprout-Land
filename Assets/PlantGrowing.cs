@@ -1,4 +1,5 @@
 ﻿using Assets._Scripts.Models;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,22 +8,36 @@ using UnityEngine.Tilemaps;
 
 public class PlantGrowing : MonoBehaviour
 {
-    protected Animator animator;
+    public Animator animator;
     public float growTime = 5f;
+    public float totalGrowTime;
     public int maxStage = 4;
     private bool isPlayerInRange = false;
     private TextMesh interactText;
     private GameObject textObject;
     public string textInteraction;
     public GameObjectData productPrefab;
+    public GameObjectData seedPrefab;
+    public DateTime startTimeToGrow;
+    public DateTime endTimeToGrow;
     public int harvestAmount = 1;
     public float doubleChange = 0.2f;
-    private void Awake()
+    public Vector3 position;
+
+    private void Start()
     {
-        animator = GetComponent<Animator>();
-        StartCoroutine(CountdownAndSwitchAnimation());
+        position = transform.position;
+        totalGrowTime = growTime * (maxStage - 1);
+        startTimeToGrow = DateTime.Now;
+        endTimeToGrow = startTimeToGrow.AddSeconds(totalGrowTime);
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
         textObject = InteractManager.Instance.textObject;
         interactText = InteractManager.Instance.interactText;
+        animator = GetComponent<Animator>();
+        StartCoroutine(CountdownAndSwitchAnimation());
     }
     private IEnumerator CountdownAndSwitchAnimation()
     {
@@ -39,6 +54,12 @@ public class PlantGrowing : MonoBehaviour
         {
             if (other.CompareTag("Player"))
             {
+                if (InteractManager.Instance.textObject == null)
+                {
+                    InteractManager.Instance.CreateInteractText();
+                }
+                textObject = InteractManager.Instance.textObject;
+                interactText = InteractManager.Instance.interactText;
                 isPlayerInRange = true;
                 interactText.text = textInteraction;
                 interactText.gameObject.SetActive(true);
@@ -66,7 +87,7 @@ public class PlantGrowing : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && animator.GetInteger("Stage") == maxStage)
             {
-                bool receiveDoubleItems = Random.value < doubleChange; //Khi thu hoạch sẽ có tỉ lệ nhân đôi sản lượng
+                bool receiveDoubleItems = UnityEngine.Random.value < doubleChange; //Khi thu hoạch sẽ có tỉ lệ nhân đôi sản lượng
                 if (receiveDoubleItems)
                 {
                     for (int i = 1; i <= (harvestAmount * 2);  i++) InventoryManager.Instance.AddItem(productPrefab);
@@ -80,6 +101,7 @@ public class PlantGrowing : MonoBehaviour
                 {
                     child.SetParent(null); //Tháo thằng textObject ra khỏi thằng cha trước khi hủy
                 }
+                GlobalControl.Instance.plantData.plants.Remove(gameObject);
                 Destroy(gameObject);
             }
         }
