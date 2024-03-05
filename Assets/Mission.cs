@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mission : MonoBehaviour
 {
@@ -11,12 +12,18 @@ public class Mission : MonoBehaviour
     public string textInteraction;
     public GameObject panelMission;
     private static Mission instance;
+    public Text txtMoney;
     public static Mission Instance { get => instance; set => instance = value; }
     
     // Start is called before the first frame update
     void Start()
     {
-       
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
     }
 
     // Update is called once per frame
@@ -36,6 +43,10 @@ public class Mission : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;
@@ -52,5 +63,12 @@ public class Mission : MonoBehaviour
             isPlayerInRange = false;
             interactText.gameObject.SetActive(false);
         }
+    }
+
+    public void CollectReward()
+    {
+        Resource resource = ResourceManager.Instance.FindResourceByName("Gold");
+        resource.Quantity += 500;
+        txtMoney.text = resource.Quantity.ToString();
     }
 }

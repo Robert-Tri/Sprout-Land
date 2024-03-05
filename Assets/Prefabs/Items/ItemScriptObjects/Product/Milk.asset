@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4696f8e5576797147bf1cc4a82d04c4d, type: 3}
+  m_Name: Milk
+  m_EditorClassIdentifier: 
+  itemName: Milk
+  ID: 29
+  icon: {fileID: -166058543, guid: 5f5a69b1ff0a24946ac8a909054ce999, type: 3}
+  m_object: {fileID: 1395856240845431629, guid: d119567a19a1f534c84cad27797ff3f1, type: 3}
+  isStackable: 1
+  maxStackNumber: 99
+  variety: 1
+  description: Sua Ong Tho
+  buyPrice: 200
+  sellPrice: 200
+  clipOnUse: {fileID: 0}
+  playClipTimes: 0

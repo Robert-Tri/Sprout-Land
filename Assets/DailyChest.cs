@@ -5,25 +5,31 @@ using UnityEngine;
 public class DailyChest : MonoBehaviour
 {
     private Animator anim;
+    private bool isClaim = false;
     private bool isOpen = false; // Trạng thái hiện tại của chest
     private GameObject textObject; // Tham chiếu đến GameObject chứa chữ
     private bool isPlayerInRange = false;
     private TextMesh interactText;
     public string textInteraction;
-    [SerializeField] private GameObjectData items;
+    [SerializeField] private List<GameObjectData> items;
     private static DailyChest instance;
     public static DailyChest Instance { get => instance; set => instance = value; }
     //[SerializeField] private GameObject dailyItem;
     [SerializeField] private List<GameObject> dailyItems;
     public float delayAfterDisappear = 5f;
     public GameObject Chest;
+    private int randomIndex;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        
-        //instance = this;
-        //this.items = new GameObjectData();
+
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
     }
 
     void Update()
@@ -41,13 +47,14 @@ public class DailyChest : MonoBehaviour
 
                 if (dailyItems.Count > 0)
                 {
+                    isClaim = true;
                     // Chọn một vật phẩm ngẫu nhiên từ danh sách
-                    int randomIndex = Random.Range(0, dailyItems.Count);
+                    randomIndex = Random.Range(0, dailyItems.Count);
                     GameObject randomItem = dailyItems[randomIndex];
 
                     // Kích hoạt vật phẩm và loại bỏ khỏi danh sách để không chọn lại
                     randomItem.SetActive(true);
-                    dailyItems.RemoveAt(randomIndex);
+                    //dailyItems.RemoveAt(randomIndex);
                 }
             }
         }
@@ -58,10 +65,10 @@ public class DailyChest : MonoBehaviour
         // Nếu chest đang mở, đóng nó
         if (isOpen)
         {
-            
+            isClaim = false;
             anim.SetBool("isOpen", false);
             isOpen = false;
-            InventoryManager.Instance.AddItem(items);
+            InventoryManager.Instance.AddItem(items[randomIndex]);
             Invoke("Appear", delayAfterDisappear);
         }
         // Nếu chest đang đóng, mở nó
@@ -83,9 +90,13 @@ public class DailyChest : MonoBehaviour
     // Hiển thị chữ khi main vào vùng cảm biến của chest
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && !isClaim)
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;
