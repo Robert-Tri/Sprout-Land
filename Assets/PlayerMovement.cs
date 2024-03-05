@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnHoeActionPerformed(InputAction.CallbackContext context)
     {
-        animator.SetTrigger("TriggerHoeingRight");
+        //animator.SetTrigger("TriggerHoeingRight");
     }
 
     // Update is called once per frame
