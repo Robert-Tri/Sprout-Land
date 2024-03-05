@@ -5,36 +5,41 @@ using UnityEngine;
 
 public class Cow : MonoBehaviour
 {
+
+    public float minX;
+    public float maxX;
+    public float minY;
+    public float maxY;
+    Vector2 targetPosition;
+
     private Animator animator;
-    public float moveSpeed = 3f; 
-    private Vector2 randomDirection;
-    private Rigidbody2D rb;
+    public float moveSpeed = 3f;
 
     void Start()
     {
+        targetPosition = GetRandomPosition();
+
         animator = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        randomDirection = Random.insideUnitCircle.normalized;
+    }
+
+    private Vector2 GetRandomPosition()
+    {
+        float randomX = Random.RandomRange(minX, maxX);
+        float randomY = Random.RandomRange(minY, maxY);
+
+        return new Vector2(randomX, randomY);
     }
 
     void Update()
     {
-        animator.SetBool("IsMoving", randomDirection.magnitude > 0.1f);
-        transform.Translate(randomDirection * moveSpeed * Time.deltaTime);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Fence"))
+        animator.SetBool("IsMoving", true);
+        if ((Vector2)transform.position != targetPosition)
         {
-            ChangeDirection();
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         }
-    }
-
-    void ChangeDirection()
-    {
-        randomDirection = -randomDirection;
+        else
+        {
+            targetPosition = GetRandomPosition();
+        }
     }
 }
