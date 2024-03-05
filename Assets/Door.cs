@@ -17,12 +17,24 @@ public class Door : MonoBehaviour
     [SerializeField] private AudioClip openDoorSoundEffect;
     [SerializeField] private AudioClip closeDoorSoundEffect;
     [SerializeField] private AudioSource audioSrc;
-
+    private void Start()
+    {
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
+    }
 
     private void Update()
     {
         if (isPlayerInRange)
         {
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;
