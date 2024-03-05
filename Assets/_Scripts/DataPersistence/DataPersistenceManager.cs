@@ -87,7 +87,7 @@ public class DataPersistenceManager : MonoBehaviour
                     plantGrowing.textInteraction = itemData.textInteraction;
                     plantGrowing.totalGrowTime = itemData.totalGrowTime;
                     plantGrowing.transform.position = new Vector3(itemData.position[0], itemData.position[1], itemData.position[2]);
-/*                    if (plantGrowing.endTimeToGrow <= presentTime)
+                    /*if (plantGrowing.endTimeToGrow <= presentTime)
                     {
                         plantGrowing.animator.SetFloat("Stage", plantGrowing.maxStage);
                     }
