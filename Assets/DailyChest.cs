@@ -23,9 +23,13 @@ public class DailyChest : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        
-        //instance = this;
-        //this.items = new GameObjectData();
+
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
     }
 
     void Update()
@@ -89,6 +93,10 @@ public class DailyChest : MonoBehaviour
         if(other.CompareTag("Player") && !isClaim)
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;

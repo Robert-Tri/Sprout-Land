@@ -20,7 +20,7 @@ MonoBehaviour:
   maxStackNumber: 99
   variety: 1
   description: Sua Ong Tho
-  buyPrice: 1000
-  sellPrice: 1000
+  buyPrice: 200
+  sellPrice: 200
   clipOnUse: {fileID: 0}
   playClipTimes: 0

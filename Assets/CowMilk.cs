@@ -19,6 +19,12 @@ public class CowMilk : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
     }
 
     // Update is called once per frame
@@ -76,6 +82,10 @@ public class CowMilk : MonoBehaviour
         if (other.CompareTag("Player") && !isClaim)
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;

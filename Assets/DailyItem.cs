@@ -14,7 +14,16 @@ public class DailyItem : MonoBehaviour
     public float delayBeforeDisappear = 2f;
     //public GameObject Chest;
     [SerializeField] private GameObject chest;
-    
+
+    private void Start()
+    {
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
+    }
     void Update()
     {
         if (isPlayerInRange)
@@ -42,6 +51,10 @@ public class DailyItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;

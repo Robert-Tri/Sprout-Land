@@ -16,7 +16,12 @@ public class CowItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (InteractManager.Instance.textObject == null)
+        {
+            InteractManager.Instance.CreateInteractText();
+        }
+        textObject = InteractManager.Instance.textObject;
+        interactText = InteractManager.Instance.interactText;
     }
 
     // Update is called once per frame
@@ -48,6 +53,10 @@ public class CowItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
+            if (InteractManager.Instance.textObject == null)
+            {
+                InteractManager.Instance.CreateInteractText();
+            }
             textObject = InteractManager.Instance.textObject;
             interactText = InteractManager.Instance.interactText;
             interactText.text = textInteraction;
