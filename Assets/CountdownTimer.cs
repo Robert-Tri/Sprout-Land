@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float countdownTime = 60f; // 60 giây (1 phút)
+    public float countdownTime = 10f; // 60 giây (1 phút)
     private float currentTime;
     public GameObject telePort;
     public Text countdownText;
