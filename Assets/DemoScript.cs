@@ -13,7 +13,7 @@ namespace Assets._Scripts.Models
 
         public void PickUpItem()
         {
-            inventoryManager.AddItem(itemsToPickUp[Random.Range(0, 2)]);
+            inventoryManager.AddItem(itemsToPickUp[Random.Range(0, 4)]);
         }
 
     }
