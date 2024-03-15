@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlantManager : MonoBehaviour
 {
-    [SerializeField] private PlantData plants;
+    public PlantData plants;
     private static PlantManager instance;
 
     public static PlantManager Instance { get => instance; set => instance = value; }
