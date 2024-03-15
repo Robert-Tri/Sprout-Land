@@ -40,6 +40,7 @@ public class DataPersistenceManager : MonoBehaviour
             NewGame();
         }
         GlobalControl.Instance.isFirstMeeting = gameData.isFirstMeeting;
+        GlobalControl.Instance.isBackgroundMusicPlaying = gameData.isBackgroundMusicPlaying;
         GlobalControl.Instance.inventoryData.items.Clear();
         foreach (var itemData in gameData.inventoryData.items)
         {
@@ -107,6 +108,7 @@ public class DataPersistenceManager : MonoBehaviour
     {
         gameData = new GameData();
         gameData.isFirstMeeting = GlobalControl.Instance.isFirstMeeting;
+        gameData.isBackgroundMusicPlaying = GlobalControl.Instance.isBackgroundMusicPlaying;
         foreach (var item in GlobalControl.Instance.inventoryData.items)
         {
             GameObjectDataDTO objectData = new GameObjectDataDTO();
