@@ -21,7 +21,7 @@ public class TeleportTrigger : MonoBehaviour
     }
     private void Start()
     {
-        OnSceneLoaded();
+        //OnSceneLoaded();
     }
 
     private void OnSceneLoaded()
