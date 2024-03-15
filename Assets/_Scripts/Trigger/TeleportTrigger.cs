@@ -19,16 +19,13 @@ public class TeleportTrigger : MonoBehaviour
             SceneManager.LoadScene(teleportLocation);
         }
     }
-    private void OnDisable()
+    private void Start()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        OnSceneLoaded();
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded()
     {
-        if (scene.name == teleportLocation)
-        {
-            Player.Instance.gameObject.transform.position = teleportPos;
-        }
+        Player.Instance.gameObject.transform.position = teleportPos;
     }
 }

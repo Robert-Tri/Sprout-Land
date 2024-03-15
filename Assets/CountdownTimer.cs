@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CountdownTimer : MonoBehaviour
 {
-    public float countdownTime = 10f; // 60 giây (1 phút)
+    public float countdownTime = 5f; // 60 giây (1 phút)
     private float currentTime;
     public GameObject telePort;
     public Text countdownText;
@@ -37,10 +37,11 @@ public class CountdownTimer : MonoBehaviour
         }
         else
         {
-            telePort.SetActive(true);
-            countdownText.text = "Dungeon Ready";
-            // Ví dụ: Hiển thị "Start Challenge"
-            Debug.Log("Start Challenge");
+            if (!telePort.activeSelf)
+            {
+                telePort.SetActive(true);
+                countdownText.text = "Dungeon Ready";
+            }
         }
     }
 

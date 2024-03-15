@@ -92,6 +92,7 @@ public class PurchasePopup : MonoBehaviour
         isSelling = true;
         this.item = item;
         this.priceText.text = item.item.sellPrice.ToString();
+        this.quantityInputField.text = "1";
         price = item.item.sellPrice;
         this.playerGold = playerGold;
         button.GetComponentInChildren<Text>().text = "Sell";

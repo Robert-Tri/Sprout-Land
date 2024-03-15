@@ -9,6 +9,7 @@ public class GlobalControl : MonoBehaviour
     public ResourceData resourceData;
     public PlantData plantData;
     public bool isFirstMeeting = true;
+    public bool isBackgroundMusicPlaying = true;
     public DataList dataList; 
     public static GlobalControl Instance;
     void Awake()

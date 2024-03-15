@@ -15,6 +15,7 @@ public class GameData
     public List<PlantDTO> plantData;
     [SerializeField]
     public bool isFirstMeeting = true;
+    public bool isBackgroundMusicPlaying = true;
 
     public GameData ()
     {
