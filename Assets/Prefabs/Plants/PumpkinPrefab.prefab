@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9cd175e3b9b91a47aa4d4f5a5fe65d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   growTime: 5
   totalGrowTime: 0
   maxStage: 4

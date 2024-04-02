@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
     bool isAlive = true;
     private InputAction hoeAction;
     [SerializeField] private AudioSource moveSoundEffect;
+
+    public float idleThreshold = 10f;
+    public Animator avatarCharacterIntoMainUI;
+    private float idleTime = 0f;
+    private bool isIdle = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,9 +52,20 @@ public class PlayerMovement : MonoBehaviour
             PlayMovementSound();
             Vector3 movement = new Vector3(pressHorizontal, pressVertical, 0f) * speed * Time.deltaTime;
             transform.Translate(movement);
+
+            avatarCharacterIntoMainUI.Play("Emote_default");
+            idleTime = 0f;
+            isIdle = false;
         }
         else
         {
+            idleTime += Time.deltaTime;
+
+            if (idleTime >= idleThreshold && !isIdle && avatarCharacterIntoMainUI != null)
+            {
+                avatarCharacterIntoMainUI.Play("Emote_Prepare_Sleepy");
+                isIdle = true;
+            }
             moveSoundEffect.Stop();
         }
     }
